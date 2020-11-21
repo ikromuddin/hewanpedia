@@ -8,25 +8,26 @@ import java.util.List;
 import simple.example.hewanpedia.model.Anjing;
 import simple.example.hewanpedia.model.Hewan;
 import simple.example.hewanpedia.model.Kucing;
+import simple.example.hewanpedia.model.Kadal;
 
 public class DataProvider {
     private static List<Hewan> hewans = new ArrayList<>();
 
-    private static List<Kucing> initDataKucing(Context ctx) {
-        List<Kucing> kucings = new ArrayList<>();
-        kucings.add(new Kucing("Angora", "Turki",
-                "Aslinya berasal dari Ankara, Turki dengan ciri khas berbulu panjang dan lembut", R.drawable.cat_angora));
-        kucings.add(new Kucing("Bengal", "Inggris",
-                "Merupakan hasil persilangan antara Kucing Leopard Asia dengan kucing domestik Inggris", R.drawable.cat_bengal));
-        kucings.add(new Kucing("Birmani", "Birma/Myanmar",
-                "Konon awalnya merupakan ras kucing yand biasa menemani para biksu yang menetap pada kuil di Birma", R.drawable.cat_birman));
-        kucings.add(new Kucing("Persia", "Iran",
-                "Kucing berbulu panjang dengan wajah bundar dan hidung pesek. Awalnya berasal dari Iran kemudian diimpor ke Italia", R.drawable.cat_persia));
-        kucings.add(new Kucing("Siam", "Thailand",
-                "Kucing hasil turunan dari Wichian Maat (Kucing Thailand) dengan ciri khas berbadan panjang dan langsing, wajah lonjong, telinga lebar, dan mata kebiruan", R.drawable.cat_siam));
-        kucings.add(new Kucing("Siberia", "Rusia",
-                "Kucing domestik Rusia dengan bulu lebat dan badan besar tapi sangat lincah dan terkenal dengan kemampuan melompatnya ", R.drawable.cat_siberian));
-        return kucings;
+    private static List<Kadal> intdatakadal(Context ctx) {
+        List<Kadal> kadals = new  ArrayList<>();
+        kadals.add(new Kadal("Kadal duri mata merah", "Papua",
+                "Kadal duri mata merah atau kadal Tribolonotus Gracilis mempunyai wujud yang lumayan menyeramkan, meski sebenarnya sangat jinak. Kadal unik ini berasal dari Papua yang ukuran dewasa mencapai 25 cm. Usianya hingga 10 tahun. Kadal ini memiliki keunikan berupa lingkaran merah di sekeliling matanya.\n" +
+                        "\n.",
+                R.drawable.kadal_duri_mata_merah));
+        kadals.add(new Kadal("kadal setan berduri","australia",
+                "AKadal setan berduri  (Moloch horridus) banyak ditemukan di gurun gersang Australia. Tubunya tertutupi duri. Mungkin ia terlihat menyeramkan, namun sama sekali tidak berbahaya, kecuali bagi semut yang dimangsanya. Kadal ini mampu melahap 1.000 semut sehari.",
+                R.drawable.kadal_setan_berduri));
+        kadals.add(new Kadal("kadal monster gila","AS dan barat laut Sonora, Meksiko ",
+                " Kadal monster gila (Heloderma suspectum) adalah spesies kadal berbisa terbesar asli Amerika Serikat. Habitatnya di barat daya AS dan barat laut Sonora, Meksiko. Namanya diambil dari nama Sungai Gila (Gila River) di lembah Arizona, tempat pertama kali ditemukan.\n" +
+                        "\n" +
+                        "Kadal ini salah satu dari segelintir kadal berbisa di dunia. Meski gigitanannya sangat menyakitkan, tidak ada laporan yang mengakibatkan kematian manusia.",
+                R.drawable.kadal_monster_gila));
+        return kadals;
     }
 
     private static List<Anjing> initDataAnjing(Context ctx) {
@@ -46,9 +47,27 @@ public class DataProvider {
         return anjings;
     }
 
+    private static List<Kucing> initDataKucing(Context ctx) {
+        List<Kucing> kucings = new ArrayList<>();
+        kucings.add(new Kucing("Angora", "Turki",
+                "Aslinya berasal dari Ankara, Turki dengan ciri khas berbulu panjang dan lembut", R.drawable.cat_angora));
+        kucings.add(new Kucing("Bengal", "Inggris",
+                "Merupakan hasil persilangan antara Kucing Leopard Asia dengan kucing domestik Inggris", R.drawable.cat_bengal));
+        kucings.add(new Kucing("Birmani", "Birma/Myanmar",
+                "Konon awalnya merupakan ras kucing yand biasa menemani para biksu yang menetap pada kuil di Birma", R.drawable.cat_birman));
+        kucings.add(new Kucing("Persia", "Iran",
+                "Kucing berbulu panjang dengan wajah bundar dan hidung pesek. Awalnya berasal dari Iran kemudian diimpor ke Italia", R.drawable.cat_persia));
+        kucings.add(new Kucing("Siam", "Thailand",
+                "Kucing hasil turunan dari Wichian Maat (Kucing Thailand) dengan ciri khas berbadan panjang dan langsing, wajah lonjong, telinga lebar, dan mata kebiruan", R.drawable.cat_siam));
+        kucings.add(new Kucing("Siberia", "Rusia",
+                "Kucing domestik Rusia dengan bulu lebat dan badan besar tapi sangat lincah dan terkenal dengan kemampuan melompatnya ", R.drawable.cat_siberian));
+        return kucings;
+    }
+
     private static void initAllHewans(Context ctx) {
         hewans.addAll(initDataKucing(ctx));
         hewans.addAll(initDataAnjing(ctx));
+        hewans.addAll(intdatakadal(ctx));
     }
 
     public static List<Hewan> getAllHewan(Context ctx) {
